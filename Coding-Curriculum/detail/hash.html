@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://cdn.opalrb.org/opal/current/opal.js"></script>
+        <script src="http://cdn.opalrb.org/opal/current/opal-parser.js"></script>
+        <script type="text/javascript">Opal.load('opal-parser')</script>
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+        </style>
+
+        <!--[if lt IE 9]>
+          	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Hashes</h1>
+        </div>
+        <div>
+            <p>In Ruby, a hash is another form of data structure. You access values from a hash by using a key which can be any string or number. The syntax used for hashes is show below.  We use curly brackets to enclose the hash.</p>
+        
+     		<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>d= {'key1' => 1 , 'key2' => 2 , 'key3' => 3}</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Hash syntax.</p>
+                </div>
+            </div>
+		
+		    <p>The hash above is named 'd' and it has 3 'key and value' pairs. The key 'key1' points to the value 1, 'key2' to 2, and so on. We place a '=>' in between the key and value and ensure that each pair of key and value is separated by commas. The key is enclosed in quotes to represent it is a string. An empty pair of curly braces {} is an empty hash.</p>
+            <p>Hashes are ideal for phone books because you can pair a name with a phone number and for login pages by pairing an e-mail address with a username.</p>
+            <br />
+            <h4>New Hash</h4>
+            <p>You can create a new hash by using the 'Hash.new' method. We can assign a variable to Hash.new and this creates a new empty hash. It has the same effect as setting the variable to equal empty curly braces. An example is shown below:</p>
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space=Hash.new</p>
+                    <p>space["key"]="value"</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Creating and assigning to a hash.</p>
+                </div>
+            </div>
+		    <br />
+		    <h4>Printing a Hash</h4>
+            <p>Below is an example showing how you can print out values from a hash. You state the name of the hash (spaceAgency) and then write within the square brackets the key of the value that you want to print out.</p>
+
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>spaceAgency = {'USA' => 'NASA', 'Europe' =>  'ESA', 'India' => 'ISRA'}</p>
+                    <p>puts "#{spaceAgency['USA']}"</p>
+                    <p>puts "#{spaceAgency['Europe']}"</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Printing from a hash. Above prints NASA and ESA.</p>
+                </div>
+            </div>
+		
+		    <br />
+		    <h4>Adding and Removing Items</h4>
+            <p>You can add values to a hash once created by using the syntax below:</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p> hash_name[new_key]=new_value</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Adding values to an exiting hash</p>
+                </div>
+            </div>
+		
+		    <p>A new value can be associated with a key that already exists by assigning a value to the key, like below:</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>hash_name[key]=new_value</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Reassigning values to a key.</p>
+                </div>
+            </div>
+		
+		    <p>Items can be removed from a hash by using the .delete method as shown below. This command will remove the key 'key_name' as well as its associated value from the hash.</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>hash_name.delete(key_name)</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Deleting items</p>
+                </div>
+            </div>
+		
+	    <pre><h5></h5><strong>Question 1</strong></h5> Create a new hash and store values of your choice for the keys “Mars”, “Earth” and “Venus” and print the values these keys and values.</pre>
+	
+		    <br />
+		    <h4>Length  function and Arrays</h4>
+            <p>We can identify the number of key-value pairs in a hash by using the 'length' function. It is possible to have arrays within a hash as shown in the example below. Each pair counts as one, even if the value is an array. For more notes on arrays, read up earlier notes.</p>
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>spaceCraft = {}</p>                            
+                    <p>spaceCraft [1969] ='Apollo 11'</p>          
+                    <p>spaceCraft[1989]='Galileo'</p>
+                    <p>spaceCraft[1977]='Voyager 1'</p>
+                    <p>puts "There are  #{spaceCraft.length} items in the spacecraft hash."</p>
+                    <p>puts spaceCraft.inspect</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: We first create an empty hash and add new key-value pairs. Then we .lenght method and print hash.</p>
+                </div>
+            </div>
+		    <p>We used the .inspect method to print the spaceCraft hash. It converts the hash into a string and prints it in the form a hash.</p>
+		    <p>The output of the above code is:</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>There are 3 items in the spacecraft hash.</p>
+                    <p>{1969=>"Apollo 11", 1989=>"Galileo", 1977=>"Voyager 1"}</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Output of above example</p>
+                </div>
+            </div>
+		
+		    <p>Below is an example code that uses an array as one of its values for its keys.</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space_hash={</p>
+                    <p class="indent1">'moonLanding'=>['Neil Armstrong','Buzz Aldrin','Pete Conrad','Alan Bean']</p>  
+                    <p class="indent1">1969=> 'Apollo',</p>
+                    <p class="indent1">=> 2012</p>
+                    <p>}</p>
+                    <p>puts "#{space_hash['moonLanding'][0]}" </p> 
+                    <p>puts space_hash.inspect</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: We create an hash(one key has an array as value). Then we print index of the array and the whole hash.</p>
+                </div>
+            </div>
+		
+		    <p>The code above outputs:</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>Neil Armstrong</p>
+                    <p>{"moonLanding"=>["Neil Armstrong", "Buzz Aldrin", "Pete Conrad", "Alan Bean"], 1969=>"Apollo" ,"Mars Curiosity"=>2012}</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Output of above example.</p>
+                </div>
+            </div>
+		
+		    <br />
+		    <h4>Loops and Hashes</h4>
+		    <p>Below is an example code that uses loops with hashes. We begin by creating a hash with keys and values. Then we can use a loop such as a while, for or each loop to iterate through each item storing a key. This will execute the same sequence of statements on each of these items. For more details on loops, read up earlier notes on loops.</p>
+            <p>The example code below will print the value of a key greater than 1970. </p>
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space= {1969=>"Apollo 11", 1989=>"Galileo", 1977=>"Voyager 1"}</p>
+                    <p>space.each {|key, value|</p>                              
+                    <p> if key>1970  </p>                
+                    <p class="indent1">   puts "After the year 1970 was #{value} project" </p>
+                    <p class="indent1">  puts "This craft took off in the year #{key}" </p>
+                    <p> end</p>
+                    <p>}</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Loops with hashes to print values of keys greater than 1970.</p>
+                </div>
+            </div>
+	
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+        	        <p>After the year 1970 was Galileo project</p>
+                    <p>This craft took off in the year 1989</p>
+                    <p>After the year 1970 was Voyager 1 project</p>
+                    <p>This craft took off in the year 1977</p>
+                    <p>The code above outputs:</p>	
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Loops with hashes to print values of keys greater than 1970.</p>
+                </div>
+            </div>
+            
+           <pre><h5><strong>Question 2</strong></h5>Iterate over the TimPeake hash using loops and print each value to the console using puts. Don't print out the keys!  <p style="color:red;text-align:center">TimPeake = { "First name" => "Tim ", "Last name" => "Peake","Age" => 43, "Nationality" => "British",}</p></pre> 			
+
+        </div>
+    </body>
+</html>

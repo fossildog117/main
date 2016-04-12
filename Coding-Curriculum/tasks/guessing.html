@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://cdn.opalrb.org/opal/current/opal.js"></script>
+        <script src="http://cdn.opalrb.org/opal/current/opal-parser.js"></script>
+        <script type="text/javascript">Opal.load('opal-parser')</script>
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+
+            .indent2 {
+                text-indent: 4em; }
+
+        </style>
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Guessing Game</h1>
+        </div>
+        <div>
+            <p>Now that you have got a bit more experience with Ruby let's try to create a simple game. In this game you will generate a random number between 1 and 100 and let the user try to guess it responding with too high or low if they fail, and allowing them to keep guessing until they are correct.</p>
+            <hr />
+            <p>Since we are creating a number of functions and variables for this task it makes sense to make it into a class to group the different functions and variables together, this is better than using global variables as you are less likely to have clashes of names as only the class name will be global.</p>
+            <p>A class is declared like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class Guessing</p>
+                    <p></p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This will create a class called Guessing</p>
+                </div>
+            </div>
+            <p>And then you can add functions to it like so</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class Addition</p>
+                    <p class="indent1">def addOne(value)</p>
+                    <p class="indent2">value++</p>
+                    <p class="indent1">end</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This will create a class called Addition with a function addOne that takes one argument and return that plus one.</p>
+                </div>
+            </div>
+            <p>Instance variables which are specific to each object created which are marked with an '@' before the variable name can be added like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class ReadOnly</p>
+                    <p class="indent1">@value = 42</p>
+                    <br />
+                    <p class="indent1">def getValue</p>
+                    <p class="indent2">@value</p>
+                    <p class="indent1">end</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This will create a class called ReadOnly that stores the value 42 as an instance variable and provides a function getValue which returns it.</p>
+                </div>
+            </div>
+            <p>And then objects can be created from a class and used like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class Addition</p>
+                    <p class="indent1">def addOne(value)</p>
+                    <p class="indent2">value++</p>
+                    <p class="indent1">end</p>
+                    <p>end</p>
+                    <br />
+                    <p>addition = Addition.new</p>
+                    <p>puts("#{addition.addOne(41)}"
+                </div>
+                <div class="panel-footer">
+                    <p>This will create a class called Addition with a function addOne that takes one argument and return that plus one and then creates an object of that class called addition which it then uses to print the result of running addOne from the addition object on the number 41.</p>
+                </div>
+            </div>
+            <p>However this can be customised to allow you to define your own function to run when the object is created, like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class ReadOnly</p>
+                    <p class="indent1">def initialize (value)
+                    <p class="indent2">@value = value</p>
+                    <p class="indent1">end</p>
+                    <br />
+                    <p class="indent1">def getValue</p>
+                    <p class="indent2">@value</p>
+                    <p class="indent1">end</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This will create a class called ReadOnly that is instantiated with a value which it then stores and provides a getValue function to get the value</p>
+                </div>
+            </div>
+            <hr />
+            <p>You will also need to use random numbers for this task, you can generate random numbers like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>def randomNumber</p>
+                    <p class="indent1">random = Random.new</p>
+                    <p class="indent1">random.rand(1..100)</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a function randomNumber that generates a random number between 1 and 100 by using an object of class Random.</p>
+                </div>
+            </div>
+            <hr />
+            <p>Create a class called 'Guessing' that is created with no arguments and has a guess function that takes a number as a guess and which will return -1 for less than, 1 for greater than and 0 for equals, and then try it out below:</p>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">CodeBox <button type="button" onclick="Opal.eval(document.getElementById('code').value); var game = window.game = Opal.Game.$new();" class="btn btn-default btn-default-lg codebutton">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button></h3>
+                </div>
+                <div class="panel-body">
+                    <textarea name="codebox" class="form-control" rows="5" id="code"></textarea>
+                </div>
+            </div>
+
+            <div class="graphic">
+                <h3>Guessing Game</h3>
+                <h4 id="output"></h4>
+                <input type="text" id="guess" onclick="window.game.$guess(document.getElementById('guess').value);"></input>
+                <button>Guess</button>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script type="text/ruby">
+            class Game
+                def initialize
+                    @guessing = Guessing.new
+                end
+
+                def guess(attempt)
+                    result = @guessing.guess(attempt)
+                    if (result == 0)
+                        %x{ document.getElementById('output').innerHTML = "Correct!";
+                          }
+                    elsif (result == -1)
+                        %x{ document.getElementById('output').innerHTML = "Too low!"; }
+                    else
+                        %x{ document.getElementById('output').innerHTML = "Too high!"; }
+                    end
+                end
+            end
+        </script>
+    </body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+    	<nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Conditionals</h1>
+        </div>
+        <h4>If statements</h4>
+		<p>If statements are used to make sure that the program only does something if certain conditions are met. An example is shown below:</p>
+		<br/>
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>a = 6 </p>
+				<p>b = 5 </p>
+				<p>if a + b == 11</p>
+                <p class="indent1">puts “Hello Spaceman”</p>
+                <p>end</p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: Since a + b = 5 + 6 = 11, “Hello Spaceman” will be printed to the console on a new line. The “end” is just there to highlight the end of the if clause</p>
+            </div>
+        </div>
+		<br/>
+		
+		<p>You may be wondering why two equals signs were used for the if statement. This means that the program is comparing the two values. In this instance it is comparing the result of a + b against 11. </p>
+		<p>There are several other “comparators” which can be used in Ruby:</p>
+		
+		<ul>
+			<li> == (Check if the values either side are equivalent) </li>
+			<li> != (Check if the values either side are unequal) </li>
+			<li> <  (Check if the value on the left is strictly less than the value on the right)
+			<li> <= (Check if the value on the left is less than or equal to the value on the right) </li>
+			<li> >  (Check if the value on the left is strictly greater than the value on the right)
+			<li> >= (Check if the value on the left is greater than or equal to the value on the right) </li>
+		</ul>
+		<br/>
+		
+		<h4>Else and Elsif statements</h4>
+		<p>We can also provide alternate options for the program if the initial condition isn’t met using the <b>else</b> or <b>elsif</b> functions.</p>
+
+
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p>x = 5</p>
+				<p>if x == 5 </p>
+				<p class="indent1">   puts "This is great!"</p>
+				<p>elsif x <= 4 </p>
+				<p class="indent1">   puts "Nope, there's no Spaceman to say hello to!"</p>
+				<p>elsif x >= 6 </p>
+				<p class="indent1">   puts "There are too many Spacemen, something has gone wrong!"</p>
+				<p> end </p>
+            </div>
+            <div class="panel-footer">
+				<p>Example:elsif statements.
+            </div>
+        </div>
+		<br/>
+		<p>Since x is equal to 5, the output will be "This is great!". If the value of x is edited to something less than 5, then the 1st elsif condition will be satisfied and it will output "Nope, there's no Spaceman to say hello to!". Finally if we edited the value of x to be greater than 5, then the final elseif condition would be satisfied and it would output "There are too many Spacemen, something has gone wrong!" </p>   
+		<br/>
+		
+				<br/>
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p>x = 5 </p>
+				<p> if x < 5</p>
+				<p class="indent1">   puts "We're almost there"</p>
+				<p> else</p>
+				<p class="indent1">  puts "We're here!"</p>
+				<p> end </p>
+            </div>
+            <div class="panel-footer">
+				<p>Example: else statements. Here, since x equals 5, the condition isn't satisfied so the code goes to the "else" function and will output "We're here!"</p>
+			</div>
+		</div>
+		<br/>	
+		
+		
+		<h4>Unless Statements</h4>
+		<p>Unless statements are the opposites of if statements where the function will be perfomed <b>unless</b> the condition is fulfilled.</p>
+		<br/>
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p>j = 3</p>
+				<p>unless j = 15</p>
+				<p class="indent1">   puts "j is not 15"</p>
+				<p> end </p>
+            </div>
+            <div class="panel-footer">
+				<p>Example: We have stated that j has a value of 3. The unless statment's condition is such that "j is not 15" will be outputted so long as (shockingly) j is not 15.</p>
+			</div>
+		</div>
+		<br/>	
+			
+		<h3>Logical Operators</h3>
+		<p>Logical operators are used in conditional statements where two conditions need to be satisfied, for example if value <b>a</b> needs to be greater than 3, but value <b>b</b> must be 5 exactly</p>
+		<p>There are several logical operators in Ruby:</p>
+		
+		<ul>
+			<li> &&  (Logical AND operator: both conditions must be satisfied )</li>
+			<li> and (same as &&)</li>
+			<li> ||  (Logical OR operator: at least one of the conditions must be satisfied)</li>
+			<li> or  (same as ||)</li>
+			<li> !   (reverses the logic of the statement so that it's false when true and true when false)</li>
+			<li> not (same as !)</li>
+		</ul>
+
+		<p>Here are some examples to help illustrate how these would be used:</p>
+
+
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p> y = 12</p>
+				<p> z = 5  </p>
+				<p> if (y <= 15 || z >= 15) </p>
+				<p class="indent1">   puts "Blast off!"  </p>
+				<p> else</p>
+				<p class="indent1">   puts "There's a fuel leak, we are unable to take off for now"</p>
+				<p> end</p>
+            </div>
+            <div class="panel-footer">
+				<p>Example: The || operator is being used here ("||" could have been replaced by "or" for the same functionality"). As one of the conditions is fulfilled the output will be "Blast off!"</p>
+			</div>
+		</div>
+		<br/>	
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p> y = 12 </p>
+				<p> z = 5 </p>
+				<p> if !(y <=15 || z >= 15) </p>
+				<p class="indent1">   puts "There's a problem with the carburetor" </p>
+				<p> elsif (y = 12 && z == 5)</p>
+				<p class="indent1">   puts "There's a problem with the lunar module"</p>
+				<p> end </p>
+            </div>
+            <div class="panel-footer">
+				<p>Example: The ! operator reverses the logic of the conditions. Thus, here the ! causes the true false to be recognised as false, thus the output cannot be "There's a problem with the carburetor". As both the conditions in the elseif statement are satisfied, the output will be "There's a problem with the lunar module".</p>
+			</div>
+		</div>
+		<br/>	
+		
+    </body>
+</html>

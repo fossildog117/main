@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://cdn.opalrb.org/opal/current/opal.js"></script>
+        <script src="http://cdn.opalrb.org/opal/current/opal-parser.js"></script>
+        <script type="text/javascript">Opal.load('opal-parser')</script>
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+    	<nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Arrays</h1>
+        </div>
+    
+        <div>
+            <p>In ruby, an array is a form of a datatype that can be used to store a collection of different types of values as a sequence under a single named variable. (Other datatypes include strings, numbers, and booleans). Elements are assigned to an array using the format below. You first state the variable name for the array, then the assignment operator (=), followed by elements of the array between squared brackets. The elements are separated by commas.</p>
+        
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>array_name = [item1 , item2]</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Syntax for loops</p>
+                </div>
+            </div>
+		
+		    <p>It also possible to have an empty array:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>Empty_array = [ ]</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Empty array syntax</p>
+                </div>
+            </div>
+		
+		    <br />
+		
+		    <h4>Index</h4>
+            <p>Indexes can be used to access elements from the array individually. We first state the array name then in between the square brackets you write the index number like below. Array indexes begin with 0 and not at 1.</p>
+
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>array_name[Index]</p>
+                    <p>array_name[0]</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Arrays. array_name[0] provides access to the 1st element in the array -index 0</p>
+                </div>
+            </div>
+     
+            <p>The example below can be used to add the 3rd (index 2) and 4th (index 3) numbers of the num array. It outputs 25 (10+15).</p>
+
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>num = [1, 5, 10, 15]</p>
+                    <p>puts "Adding the numbers at indices 2 and 3"</p>
+                    <p>puts "#{num[2] + num[3]}"</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Using array indexes.</p>
+                </div>
+            </div>
+		
+		    <br/>
+		    <h4>Assignment in Arrays</h4>
+            <p>Not only can you access values from an array but you can also assign values. We can assign a value to the 3rd number from the num array above. Below we changed the value from 10 to 34.</p>
+            
+	        <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>num[2] = 34</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Assignment in arrays. If we execute num[2]+num[3] again we now get 49</p>
+                </div>
+            </div>
+		
+		    <br/>
+		    <h4>Adding Elements to an Array</h4>
+            <p>An array can be of any length which allows us to add to add items to the end of the array. In the example below, we created an array called space. We then added the string "NASA" to the end of the array. To see the effect, we printed out the length of the array and also printed out the array. The new array outputs is ["rocket", "shuttle", "astronaut, "NASA"].</p>
+		
+		    <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space = ["rocket", "shuttle", "astronaut"]</p>
+                    <p>space.push("NASA")</p>
+                    <p>puts "#{space.length}"</p>
+                    <p>puts space.inspect</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example:  Adds string NASA to the end of the array and prints new length of the string(4 in this case) and the array </p>
+                </div>
+            </div>
+		    <p>The above code uses the .inspect method to print the space array. It converts the array into a string and prints in the form an array.</p>
+            <p>We can also insert elements into an array by using a different method as shown below. In this method, we can decide on the position in the array (index) where we want to add a new element. It will move all the elements from that index onwards down by 1.</p>
+            <pre>array_name.insert(index, item_to_be_added)</pre>
+
+		    <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space = ["rocket", "shuttle", "astronaut"]</p>
+                    <p>space.insert(1, "NASA")</p>
+                    <p>puts space.inspect</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: array_name.insert(index, item_to_be_added).</p>
+                </div>
+            </div>
+		    <p>The code above outputs ["rocket", "NASA", "shuttle", "astronaut"].</p>
+		    <br />
+		
+            <h4>Removing Elements from an Array</h4>
+            <p>It is possible to remove elements from an array. An example is shown below. We use the '.delete(element)' method to remove an element and it doesn't return anything. </p>
+
+		    <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space = ['rocket', 'shuttle', 'astronaut','shuttle']</p>
+                    <p>space.delete('shuttle')</p>
+                    <p>puts space.inspect</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Deletes all the elements that are 'shuttle'.</p>
+                </div>
+            </div>
+		    <p>The code above outputs: ['rocket', 'astronaut']</p>
+		    <br />
+		
+		    <h4>Slicing Arrays</h4>
+            <p>It is possible to access only a specific part of an array as shown in the example below. We can take a subsection of the array and store it in the slice array. We start at the index which is stated before the '..' in the square brackets and it takes the number of values defined after '..'. The example below prints ["shuttle", "astronaut"]</p>
+
+		    <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space = ["rocket", "shuttle", "astronaut", "NASA"]</p>
+                    <p>slice = space[1..2]</p>                                  
+                    <p>puts slice.inspect</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Slicing arrays. Includes "shuttle" and up to and not including "NASA" </p>
+                </div>
+            </div>
+		
+		    <br />
+			
+			<pre><h5><strong>Question 1</strong></h5>Remove the item 'shuttle' from the array space below and then add 'aliens' to the array so it becomes the 3rd item in the array. Then print the items from the 2nd item in the array to the 4th item inclusive (hint: use slicing method). Final output should be ['astronaut','aliens','moon'].
+
+<p style="color:red;text-align:center">space = ['rocket', 'shuttle', 'astronaut', 'moon', 'gravity']</p></pre>
+
+            <br/>
+
+		    <h4>Searching through Arrays</h4>
+		
+		    <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>astronauts = ["Armstrong", "Gagarin", "Aldrin"]</p>
+                    <p>puts "#{astronauts.index("Gagarin")}"</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Creates array and prints first index of "Gagarin"</p>
+                </div>
+            </div>
+		    <p>We state the name of the array and use the .index method. In the parenthesis following the .index, we state the element that we are searching for. Output for the above code is '1' because the first occurrence of the string "Gagarin" in the array is at index 1.</p>
+		
+		    <br />
+		    <h4>For Loops and Arrays</h4>
+            <p>We can use a for loop if we want to apply the same sequence of statements on every element in an array. The structure used is shown below:</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>variable_name = value</p>
+                    <p>for variable_name in array_name</p>
+                    <p class="indent1">Statement(s)</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Syntax for loops with arrays. Initialise variable and remember to include the end keyword.</p>
+                </div>
+            </div>
+		
+		    <p>A variable name follows the 'for' keyword. The variable will be assigned the value of each element in the array in turn. The statements that are part of the for loop will be executed for each element in the array. Below is an example that adds 10 to every element in the array. </p>
+            <br />
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>numbers = [1,2,3,4,5,6]</p>
+                    <p>for x in numbers</p>
+                    <p class="indent1">puts "#{[x+10]}"</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Example using for loops and arrays. It will output values from 11 to 16 each on a new line.</p>
+                </div>
+            </div>
+		
+		    <br />
+			
+			<pre><h5><strong>Question 2</strong></h5>Square every element in the square array and print the value. Output should be 400, 2500, 100, 25 and 4. (Hint: use for loops)
+
+<p style="color:red;text-align:center">square= [20,50,10,5,2]</p></pre>
+
+            <br/>
+		    <h4>Each</h4>
+            <p>Another useful iterator is the .each method. It can be used to apply an expression for each element of an object, one at a time. The general syntax that is used for the each.method is shown below:</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>object.each { |element| Statement(s)}</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: .each method</p>
+                </div>
+            </div>
+		
+		    <p>We can replace the curvy brackets with the 'do' keyword. The syntax for this is shown below:</p>
+		
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>Object.each do|element|</p>
+                    <p>Statement(s)</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: .each method with do keyword.</p>
+                </div>
+            </div>
+		
+		    <p>In between | |, you state a variable name. It acts as a place that holds each element of the object (carried out by the .each method). Below is an example. It add 10 every element in the array and then prints each of those elements. It outputs 11, 12, 13, 14 and 15.</p>
+            <br />
+		    <h5>Example</h5>
+		    <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space = [1,2,3,4,5]</p>
+                    <p>space.each do |x|</p>                                        
+                    <p class="indent1">x += 10</p>                                         
+                    <p class="indent1">puts "#{x}"</p>                                           
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: .each method that adds to every elements and prints each element. It include the end keyword.</p>
+                </div>
+            </div>
+		
+		    <p>Alternatively we can do the same as above by using curly brackets instead of using keywords do and end:</p>
+		       
+			<div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>space = [1,2,3,4,5]</p>
+                    <p>space.each {|x|puts "#{x+=10}"}</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Another version of .each method that adds to every elements and prints each element.</p>
+                </div>
+            </div>
+		    <br />
+			
+			<pre><h5><strong>Question 3</strong></h5>Use loops(each method) to print the sum of the elements from the array below. Output should be 289.
+
+<p style="color:red;text-align:center">num=[23,45,67,89,65]</pre>
+
+
+            <br/>
+		    <h4>Sorting Items in an Array</h4>
+            <p>We can use the sort method in order to rearrange items in an array. The example below sorts the array in alphabetical order. It outputs the items each on a new line in alphabetic order. We use the .sort method, the .each method and the .reverse method. The .sort method arranges the elements in reverse order hence you have to use the .reverse method to arrange it in the opposite way round.</p>
+		
+		    <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>astronauts = ["Gagarin", "Armstrong", "Aldrin"]</p>   
+                    <p>astronauts.sort.each { |astronaut|}</p>                           
+                    <p> puts "#{[astronauts.reverse]}"</p> 
+                </div>
+                <div class="panel-footer">
+                    <p>Example: Alphabetically arrange array using .each, .reverse and .sort.</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

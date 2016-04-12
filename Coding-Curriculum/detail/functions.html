@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+    	<nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Functions</h1>
+        </div>
+        <div>
+            <p>Functions allow a section of code to be encapsulated so that it can be used multiple times to avoid duplication of code and make the code easier to read</p>
+            <p>To define a function 'def' is used followed by the function name and then the code that follows is the function until an 'end' statement that is not closing a block within the function.</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>def function</p>
+                    <p class="indent1">// function code</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a function called function.</p>
+                </div>
+            </div>
+            <p>A function can take parameters, which allows it to be given values when it is used, by including names for the parameters in brackets after its name separated by commas.</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>def add(x, y)</p>
+                    <p class="indent1">x + y</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a function add which takes two variables and return the result of adding them</p>
+                </div>
+            </div>
+            <p>Functions either return a value or cause side-effects. So for example you could have a function that adds two numbers and then you could make that return the result of the addition, this can be done explicitly using a 'return' statement or otherwise the last statement in the code will be evaluated as what will be returned. A function otherwise could cause side-effects such as a drawLine function could draw a line in a graphical environment, but would have no meaningful return value</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>def subtract(a, b)</p>
+                    <p class="indent1">a - b</p>
+                    <p>end</p>
+                    <br />
+                    <p>def multiply(a, b)</p>
+                    <p class="indent1">z = a * b</p>
+                    <p class="indent1">return z</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a function subtract that takes two parameters and returns the first minus the second, and a function multiply which takes two parameters and returns their product</p>
+                </div>
+            </div>
+            <p>Normally when using functions the code of the function is indented as shown in these examples so that it is easier to read. As well as this if a function is returning a boolean value its name is normally ended with a '?' to indicate this to make it easier to make sure the functions are being used correctly by indicating return type in the name.</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>def isPositive?(x)</p>
+                    <p class="indent1">x >= 0</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a function isPositive? which takes a value and returns true if it greater than or equal to zero and false otherwise</p>
+                </div>
+            </div>
+            <p>Functions are called by just typing their name, and if they take parameters they are included in brackets separated by commas.</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>a = add(3, 5)</p>
+                    <p>b = subtract(a, 5)</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Here a variable a is declared that is the result of calling the add function on 3 and 5 which is 8, and then a variable b is declared that is the result of calling subtract on a and 5 which is 3</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

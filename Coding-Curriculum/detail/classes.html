@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+                
+            .indent2 {
+                text-indent: 4em; }
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+    	<nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Classes and Objects</h1>
+        </div>
+        <div>
+            <p>Every value in Ruby is a object, so numbers and strings are objects. Objects are created from classes which define what makes an object</p>
+            <p>Classes are defined with the class keyword, and then the class is the code that follows until an 'end' keyword that is not closing anything inside the class</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class example</p>
+                    <p class="indent1">// class code</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a class called example</p>
+                </div>
+            </div>
+            <p>Classes can contain functions, instance variables and class variables. As a reminder instance variables are variables specific to each object, whilst class variables are shared by all objects of a class.</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class SecretValue</p>
+                    <p class="indent1">@value = 42</p>
+                    <br />
+                    <p class="indent1">def getValue</p>
+                    <p class="indent2">@value</p>
+                    <p class="indent1">end</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a class SecretValue with a instance variable @value with the value 42 and a function getValue that returns it.</p>
+                </div>
+            </div>
+            <p>Objects are created from a class with the new function which is used like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>secret = SecretValue.new</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This creates a variable called secret containing an object created from the SecretValue class</p>
+                </div>
+            </div>
+            <p>Then you can use the functions of the class like so</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>secret = SecretValue.new</p>
+                    <p>value = secret.getValue</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This creates a variable secret containing an object of class SecretValue and then defines a variable value with the result of calling its getValue function</p>
+                </div>
+            </div>
+            <p>You can also modify the new function by defining an initialize function, like so</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class ReadOnly</p>
+                    <p class="indent1">def initialize (value)
+                    <p class="indent2">@value = value</p>
+                    <p class="indent1">end</p>
+                    <br />
+                    <p class="indent1">def getValue</p>
+                    <p class="indent2">@value</p>
+                    <p class="indent1">end</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This will create a class called ReadOnly that is instantiated with a value which it then stores and provides a getValue function to get the value</p>
+                </div>
+            </div>
+            <p>However this does not allow you to access the the variables, to do that you need to add accessor functions like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class Value</p>
+                    <p class="indent1">def initialize(value)</p>
+                    <p class="indent2">@value = value</p>
+                    <p class="indent1">end</p>
+                    <br />
+                    <p class="indent1">def value</p>
+                    <p class="indent2">@value</p>
+                    <p class="indent1">end</p>
+                    <br />
+                    <p class="indent1">def value=(val)</p>
+                    <p class="indent2">@value = val</p>
+                    <p class="indent1">end</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a class Value which is initialised with a value, which can then be accessed and set</p>
+                </div>
+            </div>
+            <p>Luckily you can autogenerate these functions for getting and setting the variables like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>class Value</p>
+                    <p class="indent1">attr_accessor :value</p>
+                    <br />
+                    <p class="indent1">def initialize(value)</p>
+                    <p class="indent2">@value = value</p>
+                    <p class="indent1">end</p>
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a class Value which is initialised with a value, which can then be accessed and set</p>
+                </div>
+            </div>
+            <p>And then getting and setting the variables is as you would expect</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>val = Value.new(42)</p>
+                    <p>originalValue = val.value</p>
+                    <p>val.value = 99</p>
+                    <p>newValue = val.value</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This creates an instance of Value called val with th parameter 42, and then defines a variable originalValue with the value of the @value variable of val, and then changes the value of the @value variable to 99 and creates a new variable, newValue with that value</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

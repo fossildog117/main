@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://cdn.opalrb.org/opal/current/opal.js"></script>
+        <script src="http://cdn.opalrb.org/opal/current/opal-parser.js"></script>
+        <script type="text/javascript">Opal.load('opal-parser')</script>
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+        </style>
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Escaping the Maze</h1>
+        </div>
+        <div>
+            <p>A robot is stuck in a maze, luckily you can control it using functions.<br /></p>
+            <p>It has three main functions: </p>
+            <ul>
+                <li>moveForward</li>
+                <li>turnLeft</li>
+                <li>turnRight</li>
+            </ul>
+            <p>You call them like so:</p>
+            <div class="panel panel-default examplecode">
+                <div class="panel-body">
+                    <p>moveUp<br />moveLeft<br />moveRight<br />moveDown</p>
+                </div>
+            </div>
+            <p>They are called with just the names as they don't take any paramters, which will be explained later on.</p>
+            <p>Can you help it escape with just these functions? Look at the maze to see your code in action! The robot is the pink square and the exit is the green square.</p>
+            <div class="graphic">
+                <canvas id="maze" width="400" height="400"></canvas>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">CodeBox <button type="button" onclick="Opal.eval(document.getElementById('mazecode').value);" class="btn btn-default btn-default-lg codebutton">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button></h3>
+                </div>
+                <div class="panel-body">
+                    <textarea name="codebox" class="form-control" rows="5" id="mazecode"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/maze.js"></script>
+        <script type="text/javascript">drawRobot(0,320);</script>
+        <script type="text/ruby">
+            require 'js'
+
+            $maze = [[0,0,0,0,1],[0,1,1,0,0],[0,0,1,1,0],[1,0,1,0,0],[0,0,1,0,1]]
+            $x = 0
+            $y = 4
+
+            def moveUp
+                unless ($y == 0 || $maze[$y - 1][$x] == 1)
+                    $y -= 1
+                    %x{drawRobot(#{$x} * 80, #{$y} * 80);}
+                end
+            end
+
+            def moveRight
+                unless ($x == 4 || $maze[$y][$x + 1] == 1)
+                    $x += 1
+                    %x{drawRobot(#{$x} * 80, #{$y} * 80);}
+                end
+            end
+
+            def moveLeft
+                unless ($x == 0 || $maze[$y][$x - 1] == 1)
+                    $x -= 1
+                    %x{drawRobot(#{$x} * 80, #{$y} * 80);}
+                end
+            end
+
+            def moveDown
+                unless ($y == 4 || $maze[$y + 1][$x] == 1)
+                    $y += 1
+                    %x{drawRobot(#{$x} * 80, #{$y} * 80);}
+                end
+            end
+        </script>
+    </body>
+</html>

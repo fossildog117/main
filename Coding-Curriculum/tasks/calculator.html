@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://cdn.opalrb.org/opal/current/opal.js"></script>
+        <script src="http://cdn.opalrb.org/opal/current/opal-parser.js"></script>
+        <script type="text/javascript">Opal.load('opal-parser')</script>
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+        </style>
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Calculator</h1>
+        </div>
+        <p><strong>For this task you will need your own <a href="https://ruby-lang.org">Ruby compiler</a> and text-editor.</strong></p>
+        <hr />
+
+		<h4>Functions</h4>
+        <p>In order to create a simple calculator, we can use <strong>def</strong> and <strong>end</strong> keywords to write several functions of your own. For more details about this refer to the <a href="drawing-shapes.html">Defining Shapes</a> task.</p>
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p>def hello</p>
+				<p class="indent1">	'Hello and Welcome'</p>
+				<p>end</p>
+				<br/>
+				<p>puts hello</p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: This puts statement outputs the result of the hello function: 'Hello and Welcome'.</p>
+            </div>
+        </div>  	
+		
+		<br/>
+		<p>We can also declare parameters (a list of local variable names) of the function in parentheses after the name of the function in the def statement.</p>
+
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p>def helloName (name)</p>
+				<p class="indent1">'Hello ' + name</p>
+				<p>end</p>
+				<br/>
+				<p>puts(helloName('Peter'))</p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: The helloName function in this instance takes a parameter called Peter and prints Hello Peter. Noticed we have used the ‘+’ operator to carry out string concatenation (combine the strings Hello and the name parameter).</p>
+            </div>
+        </div>  	
+
+		<br/>
+		<h4>String Interpolation</h4>
+
+		<p>String interpolation allows us to replace placeholders in a string with values. Any code placed inside #{ } will be evaluated even if the placeholders aren’t variables. We use double quotes for string interpolation as single quotes do not support it. This is because double quotes allow escape sequences to be used while single quotes do not. In double quotes, “\n” is interpreted as a new line and appears as a new line when run, whereas '\n' displays the actual escape sequence character to the user.</p>
+	
+	    <div class="panel panel-default">
+			<div class="panel-body examplecode">
+				<p>a = 10</p>
+				<p>b = 15</p>
+				<p>puts "The number #{a} is less than #{b}"</p>
+			</div>
+            <div class="panel-footer">
+                <p>Example: It outputs 'The number 10 is less than 15'.</p>
+            </div>
+        </div>
+
+
+        <br/>
+		<h4>Getting Input</h4>
+		<p>The statement <strong>gets</strong> is what lets the program read input from the keyboard. The function gets returns a string and a '\n' character (when you press Enter). This means that when you print the value retrieved by gets in a string, it will include the new line character. This makes your string go on to new line. In order to avoid this, use the string function <strong>chomp</strong> to remove this new line character.</p>
+
+		
+        <div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p>gets.chomp</p>
+            </div>
+            <div class="panel-footer">
+                <p>Use this to retrieve inputted strings</p>
+            </div>
+        </div>  		
+		
+		<p>In order to retrieve intergers inputted, you need to convert the string to an integer by using the <strong>to_i</strong> function.</p>
+
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+				<p>gets.to_i</p>
+            </div>
+            <div class="panel-footer">
+                <p>Use this to retrieve number (integer) inputs</p>
+            </div>
+        </div>  
+		
+
+        <hr />
+        <h3>Try it yourself!</h3>
+        
+        <br/>
+	    <div class="graphic">
+            <img src="../assets/images/Calculator.png" alt="ruby"></img>
+        </div>
+        <h6 align="center">Source: https://openclipart.org/detail/233918/calculator</h6>
+		<br/>
+        <p>Use the information provided on this page to develop a calculator that can be used to carry out addition, subtraction, division or multiplication of two numbers. You will need one function to identify what type of operation is being completed e.g if the user inputs ‘add’ then you complete addition or ‘sub’ for subtraction. You will then need another function to read the input of the two numbers to which the operation is being applied and then return the answer of the calculation.</p>
+        <br>
+        <h4>Hints</h4>
+		<p>Within these functions, make use of ‘if’, ‘elsif’ and ‘else’ statements. Also consider how to handle errors that may occur if you get unexpected input (use if and else statements to deal with this).</p>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="assets/js/bootstrap.min.js"></script>
+
+    </body>
+</html>

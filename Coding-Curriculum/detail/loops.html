@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://cdn.opalrb.org/opal/current/opal.js"></script>
+        <script src="http://cdn.opalrb.org/opal/current/opal-parser.js"></script>
+        <script type="text/javascript">Opal.load('opal-parser')</script>
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+    	<nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Loops</h1>
+        </div>
+  
+        <div>
+            <p>Loops allow us to carry out iteration which enables us to execute a sequence of statements repeatedly depending on whether a particular condition is satisfied. 
+  Looping can be carried out in Ruby using while, for, until and each loops.</p>
+            <br />
+            <h4>While Loops</h4>
+            <p>The while loop will execute a statement or a sequence of statements continuously provided a particular condition is true. 
+  The while loop can be executed zero or more times. </p>
+  
+            <p>When the condition is true, the loop is entered and the statements within the loop are executed. Once the statements have been executed, the loop condition is once again evaluated and if it is true, the program statements are executed once again until the condition evaluates to false. An example is shown below:</p>
+ 
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>count=0</p>                                             
+                    <p>while count < 3</p>                            
+                    <p class="indent1">puts "#{count}"</p>                                    
+                    <p class="indent1">count +=1</p>                                
+                    <p>end</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Example: The code above prints numbers from 0 to 2 each on a new line. It assigns count variable the value of 0. The loop is then executed while count is less than 3. It prints the values of the count variable whilst increasing the value assigned to count.</p>
+                </div>
+			</div>
+			
+			<p>The statement 'count+=1' prevents an infinite loop which would otherwise cause the program to crash. If the condition for the loop is never false, then an infinite loop will occur. Once the condition evaluates to false, the execution of the program continues with the statement following the loop. In Ruby, statements are grouped by using 'end' statements. The general syntax for while loops is shown below.</p>
+        </div>
+		
+        <div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>while condition</p>
+                <p class="indent1"> Statement(s)</p>
+                <p>end</p>
+            </div>
+            <div class="panel-footer">
+                <p>Syntax used in while loops</p>
+            </div>
+        </div>
+		
+		<br />
+        <h4>Break Statements</h4>
+        <p>One way to exit from a loop and to stop the execution of its statements is to use a break statement. The example prints the string 'Hello space' once. The break statement means that the while loop will only be executed once.</p>
+        
+        <br/>
+	    <div class="graphic">
+            <img src="../assets/images/space1.png" alt="space"></img>
+        </div>
+		<h6 align="center">Source: https://openclipart.org/detail/191615/extraterrestrial-space</h6>
+		<br/>
+        
+        <div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>count = "Hello Space"</p>
+                <p>while true</p>
+                <p class="indent1">puts "#{count}"</p>
+                <p class="indent1">   break</p>
+                <p>end</p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: Break Statements</p>
+            </div>
+        </div>
+		
+		<br />
+		<h4>Until Loops</h4>
+        <p>The until loop is very similar to the while loop. You give a variable an initial value and then in the until statement you state the condition for the loop. In the example below, we used count= =3. One of the statements of the loop must be increasing the value of the variable.</p>
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>count=0</p>
+                <p>until count == 3</p>                         
+                <p class="indent1">count+=1</p>                                  
+                <p>end</p>
+                <p>puts "#{count}"</p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: Unitl Loops. It uses the equilty test operator(= =) and increases the value of count by 1.</p>
+            </div>
+        </div>
+        
+		<p>The block of statements in the loop above will be executed until count equals 3. The code above increments the count variable until it equals 3. Then the loop ends and it prints the value of count which is 3.</p>
+		<br />
+		
+		<h4>For loops</h4>
+        <p>For loops are used when you want to repeatedly execute a sequence of statements a number of times counting up or iterating through a data structure.</p>
+        <p>The bracketed expression (1..n) is the range. If we use two dots, it includes the highest number in the range and the loop repeats n times. The use of three dots in (1...n) means the loop iterates n-1 times (Ruby excludes the final number in x).</p>
+         
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>for x in (1..n)</p>                      
+                <p class="indent1"> Statement(s)</p>
+                <p>end</p>                             
+            </div>
+            <div class="panel-footer">
+                <p>For loop syntax. x represents a variable and remember to add the 'end' keyword.</p>
+            </div>
+        </div>
+        
+		<p>The example below will print x for each number in the range 1- 14. It prints all the numbers for 1 to 14, each on a new line. Notice it starts from 1 and goes up to and including 14.</p>
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>for x in (1..14)</p>
+                <p class="indent1">puts "#{x}"</p>
+                <p>end</p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: For loops </p>
+            </div>
+        </div>
+		
+		<br />
+		
+		<pre><h5><strong>Question 1</strong></h5>By using a for loop, print the sum of integers between 1 and 10. Repeat this task using a while loop. Output should be 55.</pre>
+		
+		<br/>
+		
+		<h4>Next</h4>
+        <p>We can skip over particular steps in the execution of a loop by using the 'next' keyword. The example below prints even numbers in the for loop. If the remainder of count divided by 2 is 1, count is odd and the loop goes to the next iteration (increases count by 1). The code below outputs 2, 4, 6, 8 and 10.</p>
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p> for count in 1..10  </p>                
+                <p class="indent1">next if count%2==1 </p>             
+                <p class="indent1">puts "#{count}"</p>                
+                <p>end </p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: Next keyword. It uses the modulo operator to ensure the value of count is odd. It prints the even values of count.</p>
+            </div>
+        </div>
+		
+		<br />
+		<h4>Iterators</h4>
+        <p>An iterator can be used to repeat an action. It is a method that repeatedly executes a sequence of statements (block of code). </p>
+        <br />
+
+        <h4>Loop Method</h4>
+        <p>The loop method is a simple iterator which executes an infinite loop. In the example below, it prints "I love Ruby!" infinitely many times. The statements to be repeatedly executed are written inside the curly braces.</p>
+		
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p> loop {puts "I love Ruby"} </p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: Loop method</p>
+            </div>
+        </div>
+		
+		<p> You can replace the curly braces in a loop method with the keywords 'do' and 'end' to mark  the start and end of statements to be executed repeatedly. An example using do and end keywords is shown below:</p>
+		<br />
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>count=0</p>
+                <p>loop do</p>                             
+                <p class="indent1"> count+=1</p>                             
+                <p class="indent1">puts "#{count}"</p>                    
+                <p class="indent1">break if count == 3</p>                 
+                <p>end </p>                                   
+            </div>
+            <div class="panel-footer">
+                <p>Example: Loop method with do and end keywords</p>
+            </div>
+        </div>
+        <p>The code above prints the values 1, 2 and 3. The break keyword ends the loop as soon as its condition is met. An increment operator is used.</p>
+
+        <br />
+
+        <h4>.times iterator</h4>
+        <p>The .times method functions in similar way to the for loop. It can be used to execute a task or block of statements on each item a specified number of times. The example below will print out the statement "I love space" 10 times.</p>
+   
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>10.times{puts "I love space"}</p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: .times iterator</p>
+            </div>
+        </div>
+
+		<p>Below is another example of the .times method. It iterates the block of statements 5 times using values from 0 to 4 (5-1). The code below print  0, 1, 2 ,3 and 4. We have used the keywords do and end to mark the start and end of the loop. Inside the double lines( | |), we include the variable name.</p>
+				
+		<div class="panel panel-default">
+            <div class="panel-body examplecode">
+                <p>count=0</p>                                      
+                <p>5.times do |count| </p>                      
+                <p class="indent1"> puts "#{count}"</p>                     
+                <p>end</p>
+            </div>
+            <div class="panel-footer">
+                <p>Example: .times iterator with do and end keywords. Variable count is initialised to value 0</p>
+            </div>
+        </div>
+		
+		<br />
+		
+		<pre><h5><strong>Question 2</strong></h5>Print out the first 8 Fibonacci numbers: 0, 1, 1, 2, 3, 5, 8, 13 using loops.</pre>
+		<br/>
+
+    </body>
+</html>

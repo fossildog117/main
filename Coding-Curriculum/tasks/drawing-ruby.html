@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="http://cdn.opalrb.org/opal/current/opal.js"></script>
+        <script src="http://cdn.opalrb.org/opal/current/opal-parser.js"></script>
+        <script type="text/javascript">Opal.load('opal-parser')</script>
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+        </style>
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Drawing A Ruby</h1>
+        </div>
+        <div class="graphic">
+            <img src="../assets/images/ruby.png" alt="ruby"></img>
+        </div>
+        <div>
+            <p>It is very useful to be able to draw images with code, it allows you to create user interfaces so people can use your programs through a nice design as opposed to just using commands</p>
+            <div class="graphic">
+                <img src="../assets/images/graph.png"></img>
+            </div>
+            <p>As you can see above, co-ordinates for most graphics library are different to what you learn at school with (0,0) being the top left corner rather than bottom left. You could consider it as being the bottom right quadrant of a normal graph but with y increasing as you go down rather than decreasing</p>
+            <br />
+            <p>There are only a couple of functions defined for drawing in this challenge</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>drawLine(x1,y1,x2,y2)</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This will draw a line from (x1, y1) to (x2, y2)</p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>fillRect(x,y,width,height)</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This will draw a filled rectangle with top left at (x,y) with a defined width and height</p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>clearCanvas</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This will reset the canvas</p>
+                </div>
+            </div>
+            <p>These functions, unlike the functions that we have used so far, take parameters which are listed in the same order in brackets after the name so for example:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>fillRect(0,0,200,200)</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Will draw a filled rectange with top left at (0,0), width 200 and height 200.</p>
+                </div>
+            </div>
+            <p>Whilst there are only a few functions defined here they can be very powerful. However to create elaborate images it can be quite long and tiresome but the next task will show you how to create your own functions to draw shapes but for now can you draw a ruby using just these functions? The canvas is 400 by 400.</p>
+            <div class="graphic">
+                <canvas id="drawing" width="400" height="400"></canvas>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">CodeBox <button type="button" onclick="Opal.eval(document.getElementById('drawcode').value);" class="btn btn-default btn-default-lg codebutton">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                    </button></h3>
+                </div>
+                <div class="panel-body">
+                    <textarea name="codebox" class="form-control" rows="5" id="drawcode"></textarea>
+                </div>
+            </div>
+        
+        </div>
+        <script src="../assets/js/drawing.js"></script>
+        <script type="text/ruby">
+            require 'js'
+
+            def drawLine(x1,y1,x2,y2)
+                %x{drawLine(#{x1},#{y1},#{x2},#{y2});}
+            end
+
+            def fillRect(x,y,width,height)
+                %x{fillRect(#{x},#{y},#{width},#{height});}
+            end
+
+            def clearCanvas
+                %x{clearCanvas();}
+            end
+        </script>
+        <script type="text/javascript">
+            clearCanvas();
+        </script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+    </body>
+</html>

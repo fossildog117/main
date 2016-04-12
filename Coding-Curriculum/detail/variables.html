@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Learn Ruby</title>
+
+        <!-- Bootstrap -->
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+
+        <style type="text/css">
+            body {
+                padding: 20px 50px; }
+
+            .examplecode {
+                margin: 20px 20px;
+                background-color: #262626;
+                color: #ffffff;
+                padding: 10px 10px; }
+
+            .codebutton {
+                display:inline;
+                margin: 0 0 0 auto; }
+
+            .graphic {
+                text-align: center; }
+
+            .indent1 {
+                text-indent: 2em; }
+        </style>
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+    	<nav>
+            <ul class="pager">
+                <li class="previous"><a href="../index.html"><span aria-hidden="true">&larr;</span> Back</a></li>
+            </ul>
+        </nav>
+        <div class="page-header">
+            <h1>Variables</h1>
+        </div>
+        <div>
+            <h3>Types of variables</h3>
+            <p>There are 5 types of variables you can create in Ruby: local, instance, class, global and constants.</p>
+            <p>Local variables are variables that are only accessible from within the scope they are defined such as in a function. They are indicates by starting with a lowercase letter and are typically named in camel caps which means the first letter is lower case and then the start of each new word is capitalised e.g. capitalCity.</p>
+            <pre>number = 42</pre>
+            <p>Instance variables are variables specific to an object of a class, they are defined in a class but each object has their own values for them. Instance variables start with an '@' symbol, once again they are typically named in camel caps.</p>
+            <pre>@number = 42</pre>
+            <p>Class variables are variables that are shared by all variables of a class (and child classes which will be explained later) so they are declared in the class and then any objects created of that class can access that variable. Class variables start with two '@' symbols and are normally named in camel caps.</p>
+            <pre>@@number = 42</pre>
+            <p>Global variables are variables that can be accessed anywhere in the program, they should be avoided as far as possible as they can make code harder to understand. Global variables start with a '$' symbol and normally are named in camel caps.</p>
+            <pre>$number = 42</pre>
+            <p>Constants are variables that cannot change so the value they are created with will always be their value. Constants start with an upper case letter and it is common to name them in all capital letters, spearating words with '_'.</p>
+            <pre>NUMBER = 42</pre>
+            <hr />
+            <p>Variables can store any object, and how to do that will be explained later, here however we will discuss some basic literals, which allow you to easily create certain objects</p>
+            <br />
+            <p>Numbers can be used just by typing the number and Ruby will create an object suitable to hold the value, they can be created like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>life = 42</p>
+                    <p>pi = 3.14159265358979</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines a variable called life ith a value of 42 and pi with a value of 3.14159265358979</p>
+                </div>
+            </div>
+            <p>You can also create String objects to store text as a literal using speech marks or quotation marks like so:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>string = "Strings are cool"</p>
+                    <p>ruby = 'Ruby is cooler'</p>
+                </div>
+                <div class="panel-footer">
+                    <p>This defines two variables, string and ruby containing text as a string.</p>
+                </div>
+            </div>
+            <p>Going beyond this you can also display other values within the string using the syntax #{ expression }, however you have to use speech marks to do this, here are some examples:</p>
+            <div class="panel panel-default">
+                <div class="panel-body examplecode">
+                    <p>number = 42</p>
+                    <p>life = "The meaning of life is #{ number }"</p>
+                    <p>addition = "2 plus 3 equals #{ 2 + 3}"</p>
+                </div>
+                <div class="panel-footer">
+                    <p>Here a variable called number is declared with the value 42 and the life variable uses that to create the string "The meaning of life is 42". A variable named addition is also defined that evaluates an expression to create a string "2 plus 3 equals 5".</p>
+        </div>
+    </body>
+</html>
