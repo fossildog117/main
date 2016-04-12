@@ -1,0 +1,15 @@
+<ion-view title="Job" id="page5" ng-controller="createBidCtrl">
+  <ion-content overflow-scroll="true" padding="true" class="has-header">
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Your bid</span>
+        <input type="number" placeholder="Your bid" ng-model="newBid">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Description</span>
+        <textarea style="width:95%;height:100px;" placeholder="Why you are suitable for this job" ng-model="newDescription"></textarea>
+      </label>
+    </div>
+    <button class="button button-calm button-block" ng-click="postBid()">Submit</button>
+  </ion-content>
+</ion-view>
