@@ -1,0 +1,50 @@
+float sensorPin = P1_4; //enter what pin you are using for pH probe
+float outputPutAcid = P2_2; //output pin connected to acid pump
+float outputPutAlkali = P2_4; //output pin connected to alkali pump
+float sensorValue = 0;
+float userInput;
+float prelimInput;
+float temp = 25; //Degrees celcius
+float pH = 7 + (sensorValue*(9.6485309*10*10*10*10/(8.314510*temp*2.30259)));
+float randNumber; //in case it doesn't work
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(sensorPin, INPUT);
+  pinMode(outputPutAcid,OUTPUT);
+  pinMode(outputPutAlkali,OUTPUT);
+}
+
+void loop()
+{
+ 
+  randNumber = random(10,2); //generate random numbers between 10 and 2
+  
+  while(Serial.available())
+  { 
+    userInput = Serial.parseInt(); //get input from user
+  }
+   
+  sensorValue = analogRead(sensorPin); 
+  
+  if(pH <= userInput) //value of pH in water(and write serial monitor)
+  {
+    digitalWrite(outputPutAcid, HIGH);
+    
+    delay(2000);
+    
+    digitalWrite(outputPutAcid,LOW);
+  }
+  
+  else if(pH > userInput)
+  {
+    digitalWrite(outputPutAlkali, HIGH);
+    
+    delay(2000);
+    
+    digitalWrite(outputPutAcid,LOW);
+  }
+  
+  
+}
