@@ -2,8 +2,8 @@ package com.company;
 
 public class Main {
 
-    static int[][] floydWarshall(int[][] d) {
-        d = constructInitialMatixOfPredecessors(d);
+    static int[][] floyd(int[][] d) {
+        d = configArray(d);
         for (int k = 0; k < d.length; k++) {
             for (int i = 0; i < d.length; i++) {
                 for (int j = 0; j < d.length; j++) {
@@ -17,7 +17,7 @@ public class Main {
         return d;
     }
 
-    private static int[][] constructInitialMatixOfPredecessors(int[][] d) {
+    private static int[][] configArray(int[][] d) {
 
         for (int i = 0; i < d.length; i++) {
             for (int j = 0; j < d.length; j++) {
@@ -49,7 +49,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[][] output = floydWarshall(new int[][] {
+        int[][] output = floyd(new int[][] {
                 {-1,1,-1,3},
                 {13,-1,2,-1},
                 {-1,12,-1,3},
