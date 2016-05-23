@@ -3,7 +3,6 @@
 #include<stdlib.h>
 
 const int SIZE = 6;
-const int no_of_nodes = SIZE;
 const int infinity = 999;
 
 void dijakstras(int matrix[SIZE][SIZE], int end_node) {
