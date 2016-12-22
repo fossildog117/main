@@ -79,7 +79,6 @@ int iterate(struct tableau *node, struct tableau **nodeArray, int counter) {
         counter = iterate(node->right, nodeArray, counter);
     }
     return counter;
-    
 }
 
 // 1 if closed and 0 if open
@@ -180,10 +179,8 @@ struct tableau *complete(struct tableau *t) {
 }
 
 int closed(struct tableau *t) {
-    
     struct tableau **ln = (struct tableau**)malloc(sizeof(struct tableau) * Fsize);
     ln = getAllLeafNodes(t, ln);
-    
     int iter = 0;
     struct tableau *n = ln[0];
     
