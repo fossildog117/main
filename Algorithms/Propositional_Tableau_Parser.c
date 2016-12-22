@@ -204,8 +204,8 @@ int main()
     FILE *fp, *fpout;
     
     /* reads from input.txt, writes to output.txt*/
-    if ((  fp=fopen("/Users/nathanliu/Documents/Programming/COMP101/tree/tree/input.txt","r"))==NULL){printf("Error opening file");exit(1);}
-    if ((  fpout=fopen("/Users/nathanliu/Documents/Programming/COMP101/tree/tree/output.txt","w"))==NULL){printf("Error opening file");exit(1);}
+    if ((  fp=fopen("input.txt","r"))==NULL){printf("Error opening file");exit(1);}
+    if ((  fpout=fopen("output.txt","w"))==NULL){printf("Error opening file");exit(1);}
     
     int j;
     for(j=0;j<cases;j++)
