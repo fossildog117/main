@@ -2,7 +2,9 @@
 #include <string.h>   /* for all the new-fangled string functions */
 #include <stdlib.h>     /* malloc, free, rand */
 
-*/ THIS CODE WAS WRITTEN BY NATHAN LIU */
+/* 
+This was created by Nathan Liu on 23rd December 2016.
+*/
 
 typedef struct tableau {
     char *root;
